@@ -21,7 +21,7 @@ app.use("/api/shortUrl", shortUrlRoutes );
 
 
 app.get("/", (req, res) => {
-    res.send("Hello, welcome to our API!");
+    res.send("Hello, welcome to oukjkhkhkhr API!");
   });
 app.get("/try", (req, res) => {
     res.send("You're trying hard! keep working!");

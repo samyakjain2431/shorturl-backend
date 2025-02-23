@@ -23,5 +23,8 @@ app.use("/api/shortUrl", shortUrlRoutes );
 app.get("/", (req, res) => {
     res.send("Hello, welcome to our API!");
   });
+app.get("/try", (req, res) => {
+    res.send("You're trying hard! keep working!");
+  });
 
 module.exports = app; // 👈 Exporting the app

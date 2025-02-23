@@ -7,9 +7,14 @@ const shortUrlRoutes = require("./routes/shortUrlRoutes")
 
 const app = express();
 
+const allowedOrigins = [
+  "http://localhost:3000",  // Allow local development
+  // "https://your-frontend.netlify.app"  // Allow deployed frontend (update this after deployment)
+];
+
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors({ credentials: true, origin: "http://localhost:3000" }));
+app.use(cors({ credentials: true, origin: allowedOrigins }));
 
 app.use("/api/auth", authRoutes);
 app.use("/api/shortUrl", shortUrlRoutes );

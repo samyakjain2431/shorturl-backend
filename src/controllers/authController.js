@@ -13,6 +13,7 @@ const register = async (req, res)=>{
         if(userExists){
             return res.status(400).json({message : "Email already in use"});
         }
+        console.log("I'm from register controller", req.body);
         const newUser = await User.create({username, email, password});
         res.status(201).json({message : "User created successfully", user : newUser});
     }

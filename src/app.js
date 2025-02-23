@@ -15,7 +15,7 @@ const allowedOrigins = [
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
-  origin: ["http://localhost:3000"],  // ✅ Replace with your frontend URL
+  origin: ["http://localhost:3000","https://shorturl-samyak.netlify.app/"],  // ✅ Replace with your frontend URL
   credentials: true,  // ✅ Allows cookies & authentication headers
   methods: ["GET", "POST", "PUT", "DELETE"],  // ✅ Explicitly allow these methods
   allowedHeaders: ["Content-Type", "Authorization"],  // ✅ Allow these headers

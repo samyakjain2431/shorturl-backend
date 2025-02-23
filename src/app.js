@@ -15,7 +15,7 @@ const allowedOrigins = [
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
-  origin: ["https://your-frontend.netlify.app"],  // ✅ Replace with your frontend URL
+  origin: ["http://localhost:3000"],  // ✅ Replace with your frontend URL
   credentials: true,  // ✅ Allows cookies & authentication headers
   methods: ["GET", "POST", "PUT", "DELETE"],  // ✅ Explicitly allow these methods
   allowedHeaders: ["Content-Type", "Authorization"],  // ✅ Allow these headers

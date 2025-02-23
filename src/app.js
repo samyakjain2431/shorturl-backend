@@ -14,7 +14,12 @@ const allowedOrigins = [
 
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors({ credentials: true, origin: allowedOrigins }));
+app.use(cors({
+  origin: ["https://your-frontend.netlify.app"],  // ✅ Replace with your frontend URL
+  credentials: true,  // ✅ Allows cookies & authentication headers
+  methods: ["GET", "POST", "PUT", "DELETE"],  // ✅ Explicitly allow these methods
+  allowedHeaders: ["Content-Type", "Authorization"],  // ✅ Allow these headers
+}));
 
 app.use("/api/auth", authRoutes);
 app.use("/api/shortUrl", shortUrlRoutes );

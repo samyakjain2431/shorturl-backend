@@ -33,7 +33,7 @@ const login = async (req, res)=>{
         }
 
         const token = generateToken(user);
-        res.cookie("jwt", token, {httpOnly : true, secure: true, maxAge : 24*60*60*1000});
+        res.cookie("jwt", token, {httpOnly : true, secure: true,sameSite: "None" , maxAge : 24*60*60*1000});
         res.json({message : "User logged in successfully", user, token});
     }
     catch(err){

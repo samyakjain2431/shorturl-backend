@@ -31,9 +31,15 @@ const login = async (req, res)=>{
         if(!user|| !(await user.comparePassword(password))){
             return res.status(401).json({message : "Invalid credentials"});
         }
-
+        
+        console.log("I'm from login controller", req.body);
         const token = generateToken(user);
-        res.cookie("jwt", token, {httpOnly : true, secure: true,sameSite: "None" , maxAge : 24*60*60*1000});
+        res.cookie("jwt", token, {
+            httpOnly: true,
+            secure: true,       // ✅ Ensures it works only on HTTPS
+            sameSite: "None",   // ✅ Required for cross-origin requests
+            maxAge: 24 * 60 * 60 * 1000
+        });
         res.json({message : "User logged in successfully", user, token});
     }
     catch(err){

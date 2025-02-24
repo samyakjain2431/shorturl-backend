@@ -14,12 +14,15 @@ const allowedOrigins = [
 
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors({
-  origin: ["http://localhost:3000","https://shorturl-samyak.netlify.app/"],  // ✅ Replace with your frontend URL
-  credentials: true,  // ✅ Allows cookies & authentication headers
-  methods: ["GET", "POST", "PUT", "DELETE"],  // ✅ Explicitly allow these methods
-  allowedHeaders: ["Content-Type", "Authorization"],  // ✅ Allow these headers
-}));
+app.use(
+  cors({
+    origin: ["http://localhost:3000", "https://shorturl-samyak.netlify.app"], // ✅ Allow both local & deployed frontend
+    credentials: true,  // ✅ Allow cookies (JWT)
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+  })
+);
+
 
 app.use("/api/auth", authRoutes);
 app.use("/api/shortUrl", shortUrlRoutes );
